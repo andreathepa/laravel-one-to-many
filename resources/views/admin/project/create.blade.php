@@ -15,9 +15,17 @@
                         <input type="text" name="title" id="title" class="form-control" placeholder="Inserisci titolo" value="{{ old ('title')}}">
 
                     </div>
-                    <div>
-                        <label class="contol-lable">Immagine</label>
+                    <div class="form-group mt-4">
+                        <label class="contol-label">Immagine</label>
                         <input class="form-control @error('image')is-invalid @enderror" type="file" name="image" id="image">
+                    </div>
+                    <div class="form-group mt-4">
+                        <label class="control-label">Categoria</label>
+                        <select name="category_id" id="category_id" class="form-control">
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id}}">{{ $category->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group mt-4">
                         <label class="control-label">Contenuto</label>
