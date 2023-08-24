@@ -24,18 +24,23 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:50',
-            'image' => 'image|max:250'
+            
+            'title'         => 'required|max:50',
+            'image'         => 'image|max:250',
+            'category_id'   => 'required|exists:categories,id'
         ];
     }
 
     public function messages(){
         return[
-            'title.required' =>'Il titolo è obbligatorio.',
-            'title.max'      =>'Il titolo deve essere lungo al massimo :max caratteri.',
 
-            'image.image'   => 'Il file inviato deve avere una delle seguenti estensioni: .jpg .jpeg .png .webp',
-            'image.max'     =>'l\'indirizzo dell\' immagine deve avere :max caratteri'
+            'title.required'            =>'Il titolo è obbligatorio.',
+            'title.max'                 =>'Il titolo deve essere lungo al massimo :max caratteri.',
+
+            'image.image'               =>'Il file inviato deve avere una delle seguenti estensioni: .jpg .jpeg .png .webp',
+            'image.max'                 =>'l\'indirizzo dell\' immagine deve avere :max caratteri',
+            'category_id.required'      =>'Devi selezionare una categoria',
+            'category_id.exists'        =>'Categoria selezionata non valida'
         ];
     }
 }

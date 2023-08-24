@@ -22,6 +22,7 @@
                     <div class="form-group mt-4">
                         <label class="control-label">Categoria</label>
                         <select name="category_id" id="category_id" class="form-control">
+                            <option value="">Seleziona categoria</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id}}">{{ $category->name}}</option>
                             @endforeach

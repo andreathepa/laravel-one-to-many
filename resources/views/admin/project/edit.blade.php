@@ -20,8 +20,17 @@
                         <div class="col-12">
                             <img src="{{ asset('storage/'.$project->image) }}">
                         </div>
+                        <div class="form-group mt-4">
+                            <label class="control-label">Categoria</label>
+                            <select name="category_id" id="category_id" class="form-control">
+                                <option value="">Seleziona categoria</option>
+                                @foreach ($categories as $category)
+                                    <option {{$category->id == old('category_id', $project->category_id) ? 'selected' : ''}} value="{{ $category->id}}">{{ $category->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div>
-                            <label class="contol-lable">Immagine</label>
+                            <label class="control-label">Immagine</label>
                             <input class="form-control @error('image')is-invalid @enderror" type="file" name="image" id="image">
                         </div>
                         <label class="control-label">Contenuto</label>
