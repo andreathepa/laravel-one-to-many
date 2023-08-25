@@ -36,9 +36,8 @@ class StoreProjectRequest extends FormRequest
 
             'title.required'            =>'Il titolo è obbligatorio.',
             'title.max'                 =>'Il titolo deve essere lungo al massimo :max caratteri.',
-
             'image.image'               =>'Il file inviato deve avere una delle seguenti estensioni: .jpg .jpeg .png .webp',
-            'image.max'                 =>'l\'indirizzo dell\' immagine deve avere :max caratteri',
+            'image.max'                 =>'L\'indirizzo dell\' immagine deve avere :max caratteri',
             'category_id.required'      =>'Devi selezionare una categoria',
             'category_id.exists'        =>'Categoria selezionata non valida'
         ];

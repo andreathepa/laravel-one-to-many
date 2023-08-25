@@ -33,6 +33,7 @@ class ProjectController extends Controller
     public function create()
     {
         $categories = Category::all();
+        
         return view('admin.project.create', compact('categories'));
     }
 
@@ -58,6 +59,8 @@ class ProjectController extends Controller
 
         $project->fill($form_data);
 
+        // $project->category()->associate($request->input('category_id'));
+
         $project->save();
 
         return redirect()->route('admin.project.index');
@@ -71,7 +74,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('admin.project.show', compact('project'));
+        $categories = Category::all();
+
+        return view('admin.project.show', compact('project', 'categories'));
     }
 
     /**
